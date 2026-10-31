@@ -1,0 +1,149 @@
+****************************************
+Report : timing
+Design : aes_core
+Version: Fusion Compiler (representative practice report)
+Date : 2026-09-21
+****************************************
+
+Startpoint: u_core/u_regfile/reg_31/Q
+  (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_core/u_alu/u_add/u_reg_out/D
+  (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+ Point Incr Path
+ ------------------------------------------------------------
+ clock clk (rise edge) 0.000 0.000
+ clock network delay (propagated) 0.420 0.420
+ u_core/u_regfile/reg_31/Q 0.000 0.420
+ u_core/u_alu/u_mux_12/Y 0.082 0.502
+ u_core/u_alu/u_add/U1 0.118 0.620
+ u_core/u_alu/u_add/U2 0.096 0.716
+ u_core/u_alu/u_add/u_buf_7/Y 0.071 0.787
+ u_core/u_alu/u_add/u_reg_out/D 0.064 0.851
+ data arrival time 0.851
+ clock clk (rise edge) 1.000 1.000
+ clock network delay (propagated) 0.110 1.110
+ library setup time -0.065 1.045
+ data required time 1.045
+ ------------------------------------------------------------
+ slack (MET) 0.194
+
+Startpoint: u_core/u_ctrl/state_reg/Q
+Endpoint: u_core/u_alu/u_add/u_reg_out/D
+Path Group: clk
+Path Type: max
+ Point Incr Path
+ ------------------------------------------------------------
+ clock clk (rise edge) 0.000 0.000
+ clock network delay (propagated) 0.395 0.395
+ u_core/u_ctrl/state_reg/Q 0.000 0.395
+ u_core/u_ctrl/u_decode/n3/Y 0.044 0.439
+ u_core/u_alu/u_mux_12/Y 0.091 0.530
+ u_core/u_alu/u_add/U1 0.124 0.654
+ u_core/u_alu/u_add/U2 0.101 0.755
+ u_core/u_alu/u_add/u_buf_7/Y 0.073 0.828
+ u_core/u_alu/u_add/u_reg_out/D 0.062 0.890
+ data arrival time 0.890
+ clock clk (rise edge) 1.000 1.000
+ clock network delay (propagated) 0.110 1.110
+ library setup time -0.065 1.045
+ data required time 1.045
+ ------------------------------------------------------------
+ slack (VIOLATED) -0.155
+
+Startpoint: u_core/u_pipe/reg_a/Q
+Endpoint: u_core/u_pipe/reg_b/D
+Path Group: clk
+Path Type: min
+ Point Incr Path
+ ------------------------------------------------------------
+ clock clk (rise edge) 0.000 0.000
+ clock network delay (propagated) 0.210 0.210
+ u_core/u_pipe/reg_a/Q 0.000 0.210
+ u_core/u_pipe/u_inv_3/Y 0.028 0.238
+ u_core/u_pipe/u_buf_2/Y 0.034 0.272
+ u_core/u_pipe/reg_b/D -0.011 0.261
+ data arrival time 0.261
+ clock clk (rise edge) 0.800 0.800
+ clock network delay (propagated) 0.060 0.860
+ library hold time 0.035 0.895
+ data required time 0.895
+ ------------------------------------------------------------
+ slack (VIOLATED) -0.634
+
+Startpoint: u_core/u_mem_ctrl/addr_reg/Q
+Endpoint: u_core/u_mem_ctrl/u_addr_buf/A
+Path Group: clk
+Path Type: max
+ Point Incr Path
+ ------------------------------------------------------------
+ clock clk (rise edge) 0.000 0.000
+ clock network delay (propagated) 0.360 0.360
+ u_core/u_mem_ctrl/addr_reg/Q 0.000 0.360
+ u_core/u_mem_ctrl/u_addr_buf/A 0.133 0.493
+ data arrival time 0.493
+ ------------------------------------------------------------
+ slack (MET) 0.552
+
+Startpoint: u_core/u_fetch/pc_reg/Q
+Endpoint: u_core/u_fetch/next_pc_reg/D
+Path Group: clk
+Path Type: max
+ Point Incr Path
+ ------------------------------------------------------------
+ clock clk (rise edge) 0.000 0.000
+ clock network delay (propagated) 0.315 0.315
+ u_core/u_fetch/pc_reg/Q 0.000 0.315
+ u_core/u_fetch/u_inc/A 0.082 0.397
+ u_core/u_fetch/u_inc/S 0.117 0.514
+ u_core/u_fetch/u_mux/Y 0.105 0.619
+ u_core/u_fetch/next_pc_reg/D 0.088 0.707
+ data arrival time 0.707
+ clock clk (rise edge) 1.000 1.000
+ clock network delay (propagated) 0.095 1.095
+ library setup time -0.058 1.037
+ data required time 1.037
+ ------------------------------------------------------------
+ slack (MET) 0.330
+
+Startpoint: u_core/u_dma/addr_reg/Q
+Endpoint: u_core/u_dma/u_addr_check_reg/D
+Path Group: clk
+Path Type: max
+ Point Incr Path
+ ------------------------------------------------------------
+ clock clk (rise edge) 0.000 0.000
+ clock network delay (propagated) 0.370 0.370
+ u_core/u_dma/addr_reg/Q 0.000 0.370
+ u_core/u_dma/u_compare/A 0.141 0.511
+ u_core/u_dma/u_compare/Z 0.129 0.640
+ u_core/u_dma/u_buf/Z 0.078 0.718
+ u_core/u_dma/u_addr_check_reg/D 0.097 0.815
+ data arrival time 0.815
+ clock clk (rise edge) 1.000 1.000
+ clock network delay (propagated) 0.105 1.105
+ library setup time -0.061 1.044
+ data required time 1.044
+ ------------------------------------------------------------
+ slack (MET) 0.229
+
+Startpoint: u_core/u_status/status_reg/Q
+Endpoint: u_core/u_status/status_reg2/D
+Path Group: clk
+Path Type: min
+ Point Incr Path
+ ------------------------------------------------------------
+ clock clk (rise edge) 0.000 0.000
+ clock network delay (propagated) 0.205 0.205
+ u_core/u_status/status_reg/Q 0.000 0.205
+ u_core/u_status/u_inv/Y 0.025 0.230
+ u_core/u_status/u_buf/Y 0.031 0.261
+ u_core/u_status/status_reg2/D 0.000 0.261
+ data arrival time 0.261
+ clock clk (rise edge) 0.800 0.800
+ clock network delay (propagated) 0.055 0.855
+ library hold time 0.028 0.883
+ data required time 0.883
+ ------------------------------------------------------------
+ slack (MET) 0.622

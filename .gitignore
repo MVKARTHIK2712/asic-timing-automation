@@ -1,0 +1,4 @@
+# Ignore generated report and CSV outputs
+*_summary_report.rpt
+*_violations_detail.rpt
+*_violations.csv
